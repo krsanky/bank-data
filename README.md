@@ -1,14 +1,18 @@
 # bank-data
 
-A Clojure library designed to ... well, that part is up to you.
 
-## Usage
 
-FIXME
 
-## License
+ (sql/insert-transaction db/db {:dt "1" :account "2" :num "3" :description "4" :debit "5" :credit "6"})
 
-Copyright © 2017 FIXME
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+
+bank-data.core=> (require '[clj-time.core :as t])
+nil
+bank-data.core=> (require '[bank-data.sql :as sql])
+nil
+bank-data.core=> (require '[bank-data.db :as db])
+nil
+bank-data.core=> (sql/insert-transaction db/db {:dt (.toDate (t/date-time 2002 2 3)) :account "2" :num "3" :description "I POOPED" :debit "123" :credit "123"})
+1
+
